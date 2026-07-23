@@ -1,0 +1,165 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2870
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Arial-BoldMT;\f1\fswiss\fcharset0 ArialMT;\f2\fmodern\fcharset0 Courier;
+\f3\fswiss\fcharset0 Arial-ItalicMT;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue0;\red109\green109\blue109;
+}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c0\c0\c0\c84706;\cssrgb\c50196\c50196\c50196;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs32 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Description\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0 \cf0 The 
+\f2\fs28 ConnectathonAgent
+\f1\fs32  manages and executes the NFS (Network File System) Connectathon test suite. It breaks testing down into three specific phases\'97
+\f0\b Basic
+\f1\b0 , 
+\f0\b General
+\f1\b0 , and 
+\f0\b Special
+\f1\b0  tests\'97and runs them directly against a designated local or mounted target directory.\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs32 \cf0 Installation Dependencies\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0 \cf0 Ensure you have the Connectathon source files downloaded and compiled (
+\f2\fs28 make
+\f1\fs32 ) on your test machine:\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs40 \cf0 bash\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs28 \cf0 git clone https://github.com /path/to/cthon04\
+cd /path/to/cthon04 && make\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf0 Use code with caution.\
+\pard\pardeftab720\qc\partightenfactor0
+
+\fs26\fsmilli13333 \cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs32 \cf0 CLI Execution Usage\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0 \cf0 You can run the script directly from your terminal using command-line arguments.\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs40 \cf0 bash\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs28 \cf0 python connectathon_agent.py --test-dir <PATH_TO_CONNECTATHON> --mount-point <TARGET_DIR> [--suite <SUITE_NAME>]\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf0 Use code with caution.\
+\pard\pardeftab720\qc\partightenfactor0
+
+\fs26\fsmilli13333 \cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs32 \cf0 Argument Flags\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls1\ilvl0
+\f2\b0\fs28 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 --test-dir
+\f1\fs32  
+\f3\i (Required)
+\f1\i0 : The absolute path to your compiled Connectathon folder.\
+\ls1\ilvl0
+\f2\fs28 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 --mount-point
+\f1\fs32  
+\f3\i (Required)
+\f1\i0 : The absolute path to your local directory or active NFS mount target.\
+\ls1\ilvl0
+\f2\fs28 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 --suite
+\f1\fs32  
+\f3\i (Optional)
+\f1\i0 : The specific test profile to execute. Options: 
+\f2\fs28 basic
+\f1\fs32 , 
+\f2\fs28 general
+\f1\fs32 , 
+\f2\fs28 special
+\f1\fs32 , or 
+\f2\fs28 all
+\f1\fs32  (Default: 
+\f2\fs28 all
+\f1\fs32 ).\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs32 \cf0 CLI Examples\
+Run the complete automated regression matrix (Default):
+\f1\b0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs40 \cf0 bash\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs28 \cf0 python connectathon_agent.py --test-dir /opt/cthon04 --mount-point /mnt/nfs_share\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf0 Use code with caution.\
+\pard\pardeftab720\qc\partightenfactor0
+
+\fs26\fsmilli13333 \cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs32 \cf0 \strokec2 Isolate and run only the "basic" test suite functionality:
+\f1\b0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs40 \cf0 bash\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs28 \cf0 python connectathon_agent.py --test-dir /opt/cthon04 --mount-point /mnt/nfs_share --suite basic\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf0 Use code with caution.\
+\pard\pardeftab720\qc\partightenfactor0
+
+\fs26\fsmilli13333 \cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf4 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs40 \cf0 \
+}
